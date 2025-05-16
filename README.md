@@ -22,6 +22,12 @@ Quickstart
    $ ./get_latest_go.sh
    ```
 
+Quickerstart
+------------
+```sh
+curl -sv https://raw.githubusercontent.com/magisterquis/get_latest_go/refs/heads/master/get_latest_go.sh | /bin/sh
+```
+
 Usage
 -----
 ```
