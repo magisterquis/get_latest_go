@@ -21,8 +21,8 @@ techo() { if [ -t 1 ]; then /bin/echo "$@"; fi; }
 # $@ - Echo's argv
 vecho() { if $VERBOSE; then /bin/echo $@; fi; }
 
-# eecho prints all but its first argument to stderr and then exits with the
-# status code given by its first argument.
+# eecho (error echo) prints all but its first argument to stderr and then exits
+# with the status code given by its first argument.
 #
 # Arguments:
 # $1    - Exit status code
