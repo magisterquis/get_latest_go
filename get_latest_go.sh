@@ -40,7 +40,7 @@ goenv() {
         if [ -n "$GOV" ]; then
                 /bin/echo "$GOV"
         elif [ -x "${INSTALLED_GO:-}" ]; then
-                go env "$1"
+                "$INSTALLED_GO" env "$1"
         fi
 }
 
@@ -217,6 +217,10 @@ if $UPDATE_VIMGO && type vim >/dev/null 2>&1 && [ -f "$HOME/.vimrc" ] &&
 fi
 
 # If we don't have Go in our path, remind the user to add it.
+if type hash >/dev/null 2>&1; then
+      hash -r
+fi
+if [ "$(which go)" != "$INSTALLED_GO" ]; then
 if [ "$(type go)" != "$INSTALLED_GO" ]; then
         EXPORT="echo 'export PATH=\$PATH:$(
                 goenv GOPATH
