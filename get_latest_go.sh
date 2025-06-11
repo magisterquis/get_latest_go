@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/bin/ksh
 # get_latest_go.sh
 # Gets the latest Go compiler/stdlib/etc and sticks it in $HOME/go/go
 # By J. Stuart McMurray
 # Created 20240811
-# Last Modified 20250516
+# Last Modified 20250611
 
 set -euo pipefail
 
@@ -140,10 +140,11 @@ VERBOSE=false
 if [ -z "$DEFAULT_ARCH" ]; then
         UNAME_ARCH=$(uname -m)
         case "$UNAME_ARCH" in
-                "amd64")  DEFAULT_ARCH="amd64"                        ;;
-                "x86_64") DEFAULT_ARCH="amd64"                        ;;
-                "arm64")  DEFAULT_ARCH="arm64"                        ;;
-                *)        eecho 3 "Unknown architecture: $UNAME_ARCH" ;;
+                "aarch64")  DEFAULT_ARCH="arm64"                        ;;
+                "amd64")    DEFAULT_ARCH="amd64"                        ;;
+                "arm64")    DEFAULT_ARCH="arm64"                        ;;
+                "x86_64")   DEFAULT_ARCH="amd64"                        ;;
+                *)          eecho 3 "Unknown architecture: $UNAME_ARCH" ;;
         esac
 fi
 if [ -z "$DEFAULT_OS" ]; then
