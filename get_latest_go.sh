@@ -221,7 +221,7 @@ fi
 if type hash >/dev/null 2>&1; then
       hash -r
 fi
-if [ "$(which go)" != "$INSTALLED_GO" ]; then
+if [ "$(which go 2>/dev/null)" != "$INSTALLED_GO" ]; then
         EXPORT="echo 'export PATH=\$PATH:$(
                 goenv GOPATH
         )/bin:$(
